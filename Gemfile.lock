@@ -261,7 +261,6 @@ PLATFORMS
 DEPENDENCIES
   duktape
   github-pages
-  jekyll (~> 3.8)
   jekyll-compose
   jekyll-include-cache
   tzinfo-data
