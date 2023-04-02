@@ -2,17 +2,21 @@
 # Must be the same as `author` in `_config.yml`.
 # Change `author1` to your shortname.
 author1:
-  name:              <firstname> <lastname>
-  email:             <mail@domain.tld>
+  name:              Vicky He
+  email:             1411258142@qq.com
 
   # Used at the bottom of each page and at the top of the `about` layout
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
   about:             |
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    I am a software engineer who focus mainly on front-end side.
+    I've been in the IT industry for over 5 years.I started as a data analyst right after I graduated. 
+    after I had been working for 2 years, I went over to the front-end side.
+    I've managed to get a pretty good understanding of front-end technologies 
+    such as Html5,CSS,JavaScript,TypeScript,as well as React and Vue.
+    Writing is a useful way to share what I have learnt.
     
-    Open `_data/authors.yml` to edit this text.
+  
+   
 
   # This photo will be used in the about section
   picture:
@@ -26,8 +30,8 @@ author1:
   # Comment/uncommet to show/hide
   # Rearrange to change the order in which they appear
   social:
-    twitter:         <username>
-    github:          <username>
+    #twitter:         <username>
+    github:          https://github.com/xiaodingmao
     # email:           <mail@domain.tld>
     # rss:             https://<url>/feed.xml
     # facebook:        <username>
