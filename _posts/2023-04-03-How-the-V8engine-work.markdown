@@ -2,9 +2,9 @@
 layout: post
 title:  "How does the v8 engine work?"
 image:
-  path:    /assets/img/blog/v8Bg.png
+  path:    /assets/img/blog/chrome-v8.png
   srcset:
-    1920w: /assets/img/blog/v8Bg.png
+    1920w: /assets/img/blog/chrome-v8.png
 
 ---
 
