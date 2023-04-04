@@ -9,12 +9,14 @@ description: >
 sitemap: false
 ---
 
-
+- Table of Contents
+{:toc .large-only}
 
 ## What's node.js?
 As we can see on the official website, node.js is an open-source, cross-platform JavaScript runtime environment.
 *open-source* means that source code is publicly available for sharing and modification.
 *cross-platform* means that node.js is available on Mac, Windows and Linux.
+
 ### What does the JavaScript runtime mean?
 
 Firstly, we should know the meaning of the JavaScript engine, which is a program that converts JavaScript code into machine code that allows a computer to perform specific tasks.  
