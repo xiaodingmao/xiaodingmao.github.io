@@ -2,15 +2,14 @@
 layout: post
 title: the fundamental knowledge of node.js for beginners
 image: 
-  path: /assets/img/blog/Nodejs.png
+  path: /assets/img/blog/nodejs.png
 description: >
   node.js is an open-source, cross-platform JavaScript runtime environment.
   Node.js runtime provides all the necessary components so as to use and run JavaScript code outside the browser.
 sitemap: false
 ---
 
-the fundamental knowledge of node.js for beginners
-{:.lead}
+
 
 ## What's node.js?
 As we can see on the official website, node.js is an open-source, cross-platform JavaScript runtime environment.
@@ -20,13 +19,13 @@ As we can see on the official website, node.js is an open-source, cross-platform
 
 Firstly, we should know the meaning of the JavaScript engine, which is a program that converts JavaScript code into machine code that allows a computer to perform specific tasks.  
 V8 engine is one of the JavaScript engines, which is open-source and developed by Google for Chrome.V8 is written in C++ and not in JavaScript. it can run standalone or can be embedded into any C++ application. the important thing is that the **V8 engine sits at the core of Node.js.** Simple speaking, JavaScript runtime is an environment that provides all the necessary components to use and run a JavaScript program.JavaScript engine is one component in the JavaScript runtime. The following picture shows how js codes are executed in the **browser runtime** which consists of the js engine, web APIs, task queues and event loop.
-![browser js runtime](./BrowserRuntime.png)
+![browser js runtime](/assets/img/blog/BrowserRuntime.png)
 >For example,V8 engine in chrome is used to execute js codes. It comprises a call stack where js codes get executed and a heap storing all the variables. Web APIs refer to DOM, timers such as setTimeout and setInterval, promise,web storage etc. these are extra functionality added to the V8 engine. Queues are where asynchronous tasks wait before they are executed. Event loop ensures async tasks get executed in the right order.  
 
 What we can highlight from the above picture is that the js engine itself can only perform *ECMAScript*, whereas JavaScript extends the core language ECMAScript by supplying objects that need to run in the JavaScript runtime.  
 *So what's the Node.js runtime?*   
 Node.js runtime provides all the necessary components so as to use and run JavaScript codes **outside** the browser**. As I have mentioned before, the V8 engine is one of the most important dependencies, which can help Node.js understand js codes. Libuv is another major dependency that can help Node.js handle asynchronous I/O such as file system and network operation.C++ features backing Node.js are the source codes that provide Node.js accessing network or file system. on top of Node.js, JS library enables developers to get access to C++ features easily without understanding C++. For example, when we write js codes to access the file system, the code internally calls the corresponding C++ feature which further relies on Libuv to access the file system.
-![node.js runtime](./nodeRuntime.png)  
+![node.js runtime](/assets/img/blog/nodeRuntime.png)  
 **one important difference between Node.js runtime and the browser runtime is that Node.js runtime doesn't have access to web APIs like DOM or window.**   
 To sum up, Node.js is capable of executing JavaScript codes outside a browser which can not only execute the standard ECMAScript but also new features, like reading from the network and accessing a database or filesystem, which actually are developed by C++ but exposed common utilities by JavaScript.  
 ## Why do we use Node.js?  
