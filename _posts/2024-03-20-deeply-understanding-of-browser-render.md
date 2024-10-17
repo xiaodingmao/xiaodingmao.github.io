@@ -26,10 +26,11 @@ sitemap: false
 其中在用户输入网络地址后，UI线程会判定是否是有效的网络地址。如果是有效URL，此时tab会loading spinner,并将请求交给network thread,用于处理网络请求。network thread 会进行DNS解析，建立tcp连接，直到收到请求数据后，断开网络连接。
 
 network thread 会读取相应数据，如果是zip文件或者其他格式文件，则将数据转为下载。若是html文件，则将获取到的数据交给渲染进程来渲染整个页面。
+![browser](/assets/img/blog/renderProcess.png)  
 
 渲染进程的主线程会处理大部分接收过来的数据。主线程进行html,css,javascript的解析。首先解析html数据构建DOM，在构建DOM时，遇到图片,CSS和javscript等外部资源，会并发运行预加载扫描器，并将请求发送到浏览器进程的网络线程进行数据请求。
 
-当 HTML 解析器找到 <script> 标记时，它会暂停 HTML 文档的解析，并且必须加载、解析和执行 JavaScript 代码。因为 JavaScript 可以使用 document.write() 之类的内容更改整个 DOM 结构之类的内容来更改文档形状。可以向 <script> 标记添加 async 或 defer 属性。然后，浏览器会异步加载并运行 JavaScript 代码，而不会阻止解析。
+当 HTML 解析器找到 `<script>` 标记时，它会暂停 HTML 文档的解析，并且必须加载、解析和执行 JavaScript 代码。因为 JavaScript 可以使用 `document.write()` 之类的内容更改整个 DOM 结构之类的内容来更改文档形状。可以向 `<script>` 标记添加 async 或 defer 属性。然后，浏览器会异步加载并运行 JavaScript 代码，而不会阻止解析。
 
 主线程解析CSS并确定每个DOM节点的计算样式，然后在根据合成后的render树，构建布局树。
 
@@ -42,26 +43,5 @@ network thread 会读取相应数据，如果是zip文件或者其他格式文�
 图块光栅化后，合成器线程会收集图块信息（称为“绘制四边形”）来创建合成器框架。然后，通过 IPC 将合成器帧提交到浏览器进程。
 
 合成的好处是，在不涉及主线程的情况下完成。合成器线程不需要等待样式计算或 JavaScript 执行。因此，仅合成动画被认为是实现流畅性能的最佳选择。如果需要再次计算布局或绘制，则必须涉及主线程。
-
-graph TD
-    A["User enters URL"] --> B["Browser process: UI thread"]
-    B --> C["Browser process: Network thread"]
-    C --> D{"Is it a valid URL?"}
-    D -- Yes --> E["Send request to server"]
-    D -- No --> F["Perform search"]
-    E --> G["Receive response"]
-    G --> H["Browser process: UI thread"]
-    H --> I["Create new Render process"]
-    I --> J["Render process: Main thread"]
-    J --> K["Parse HTML, CSS, JavaScript"]
-    K --> L["Construct DOM and CSSOM"]
-    L --> M["Create Render Tree"]
-    M --> N["Layout"]
-    N --> O["Paint"]
-    O --> P["Composite"]
-    P --> Q["Display content"]
-
-    %% Additional details
-    F --> H
-    Q --> R["User interacts with page"]
-    R --> J
+## 以下是整体的渲染流程图
+![browser](/assets/img/blog/renderWhole.png)  
